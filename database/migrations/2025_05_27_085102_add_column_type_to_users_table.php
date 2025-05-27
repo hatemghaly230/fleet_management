@@ -11,9 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+       Schema::table('users', function (Blueprint $table) {
+            $table->string('type')->default('user')->after('email'); // default to user
         });
     }
 
@@ -22,6 +21,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+                       $table->dropColumn('type');
+
+        });
     }
 };

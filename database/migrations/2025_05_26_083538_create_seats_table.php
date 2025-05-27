@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('buses', function (Blueprint $table) {
+        Schema::create('seats', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('bus_id')->constrained()->onDelete('cascade');
+            $table->string('seat_number');
             $table->timestamps();
+            $table->unique(['bus_id', 'seat_number']); // Prevent duplicate seat numbers for same bus
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('buses');
+        Schema::dropIfExists('seats');
     }
 };

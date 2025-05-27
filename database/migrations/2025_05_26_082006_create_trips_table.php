@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('trips', function (Blueprint $table) {
-            $table->id();
-            $table->string('name'); // ex: "Cairo to Asyut"
+           $table->id();
+            $table->foreignId('from_city_id')->constrained('cities')->onDelete('cascade');
+            $table->foreignId('to_city_id')->constrained('cities')->onDelete('cascade');
+            $table->date('date');
             $table->timestamps();
         });
     }
