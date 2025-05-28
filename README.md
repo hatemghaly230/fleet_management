@@ -89,6 +89,7 @@ Visit the app at: [http://localhost:8000](http://localhost:8000)
 - email : mohamed.saeed@golyv.co , password:12345678 ----admin
 - email : user1@example.com , password:12345678 ----user
 - email : user2@example.com , password:12345678 ----user
+- email : user3@example.com , password:12345678 ----user
 
 
 ---
