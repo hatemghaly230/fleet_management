@@ -4,24 +4,14 @@ A Laravel-based Bus Reservation Management System for intercity travel with inte
 
 ---
 
-## Requirements
-
-- PHP >= 8.1  
-- Composer  
-- MySQL  
-- Node.js & NPM (for frontend assets)  
-- Laravel 10+  
-- Laravel Sail (optional, for Docker-based setup)
-
----
 
 ## Installation Steps
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/bus-reservation-system.git
-cd bus-reservation-system
+git clone https://github.com/hatemghaly230/fleet_management.git
+cd fleet_management
 ```
 
 ### 2. Install PHP Dependencies
@@ -50,7 +40,7 @@ Set your database connection credentials:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=bus_reservation
+DB_DATABASE=fleet_management
 DB_USERNAME=root
 DB_PASSWORD=
 ```
@@ -92,39 +82,23 @@ Visit the app at: [http://localhost:8000](http://localhost:8000)
 
 ---
 
+
+## Admin And User Accounts Example
+
+- email : ali.hamed@golyv.co , password:12345678 ----admin
+- email : mohamed.saeed@golyv.co , password:12345678 ----admin
+- email : user1@example.com , password:12345678 ----user
+- email : user2@example.com , password:12345678 ----user
+
+
+---
+
 ## API Endpoints
 
 - `POST /api/login` – Login and receive token  
-- `GET /api/seats/available?trip_id={id}&station_from_id={id}&station_to_id={id}` – Check seat availability  
+- `POST /api/register` – Register 
+- `GET /api/seats/available?trip_id={id}&from={id}&to={id}` – Check seat availability  
+- `GET /api/bookings?trip_id={id}&seat_id={id}&from_station_id={id}&to_station_id={id}` –   Booking
 
-> All other endpoints are protected and require Bearer Token authentication.
 
 ---
-
-## Features
-
-- Trip management with intermediate stations  
-- Bus and seat management  
-- Dynamic seat availability checking  
-- Booking and reservation logic  
-- RESTful API with authentication  
-- Clean service-based architecture
-
----
-
-## Development Notes
-
-- Business logic handled in service classes (e.g., `TripService`, `BookingService`)  
-- API Resources used for consistent JSON responses  
-- Policies and Gates used for access control  
-
----
-
-## Optional: Run with Laravel Sail (Docker)
-
-```bash
-./vendor/bin/sail up -d
-./vendor/bin/sail artisan migrate --seed
-```
-
-
